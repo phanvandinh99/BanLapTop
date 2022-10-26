@@ -16436,7 +16436,7 @@ a.ui-button:active,
 }
 .breadcrumb-nav li:last-child {
     margin-right: 0;
-    color: #ffe500;
+    color: red;
 }
 .breadcrumb-nav li:last-child::after {
     display: none;
@@ -16450,11 +16450,11 @@ a.ui-button:active,
     background-color: #FEF5EF;
 }
 .breadcrumb-bg-color--black {
-    background-color: #000;
+    background-color: #fef5ef;
 }
 
 .breadcrumb-nav-color--black li a {
-    color: #fff;
+    color: #000;
 }
 .breadcrumb-nav-color--black li a:hover {
     color: #FE8C23;
@@ -18418,7 +18418,7 @@ Pages - Contact
     background: #FEF5EF;
 }
 .mobile-header-bg-color--yellow {
-    background: #fed100;
+    background: #fef5ef;
 }
 .mobile-header-bg-color--white {
     background: #FFF;
@@ -18431,7 +18431,7 @@ Pages - Contact
 * Layout - Footer
 *****************************/
 .footer-bg {
-    background: #24262b;
+    background: #fef5ef;
     padding-top: 60px;
 }
 @media (min-width: 768px) {
@@ -18447,7 +18447,7 @@ Pages - Contact
 
 /*Footer Top*/
 .footer-top .footer-widget-single-item .title {
-    color: #FFF;
+    color: #000;
     font-weight: 700;
     font-size: 16px;
     position: relative;
@@ -18472,7 +18472,7 @@ Pages - Contact
 }
 .footer-top .footer-widget-single-item .footer-nav li a {
     display: inline-block;
-    color: #9b9b97;
+    color: #000;
     transition: all 0.5s ease;
 }
 .footer-top .footer-widget-single-item .footer-nav li a:hover {
@@ -18506,7 +18506,7 @@ Pages - Contact
 }
 
 .footer-social .title {
-    color: #FFF;
+    color: #000;
     font-weight: 700;
     font-size: 18px;
     margin-bottom: 27px;
@@ -18538,7 +18538,7 @@ Pages - Contact
 }
 
 .footer-newsletter .title {
-    color: #FFF;
+    color: #000;
     font-weight: 700;
     font-size: 18px;
     margin-bottom: 27px;
