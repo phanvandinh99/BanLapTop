@@ -45,8 +45,8 @@
                         <h6 class="sidebar-title">DANH MỤC</h6>
                         <div class="sidebar-content">
                             <ul class="sidebar-menu">
-                                <li><a href="#">Laptop</a></li>
-                                <li><a href="#"> Phụ kiện</a></li>
+                                <li><a href="@Url.Action("Laptop","Products")">Laptop</a></li>
+                                <li><a href="@Url.Action("Accessories","Products")"> Phụ kiện</a></li>
                             </ul>
                         </div>
                     </div> <!-- End Single Sidebar Widget -->
@@ -136,24 +136,28 @@
                                     </div> <!-- End Page Amount -->
                                 </div> <!-- End Sort tab Button -->
                                 <!-- Start Sort Select Option -->
-                                <div class="sort-select-list d-flex align-items-center">
-                                    <label class="mr-2">Sắp xếp:</label>
-                                    <form action="#">
-                                        <fieldset>
-                                            <div id="sort-for" hidden>@ViewBag.SortBy</div>
-                                            <select class="search">
-                                                <option @(ViewBag.CurrentSort == ViewBag.ResetSort ? "selected" : "")>Mặc định</option>
-                                                <option @(ViewBag.CurrentSort == ViewBag.PopularSort ? "selected" : "") value="@ViewBag.PopularSort"><a href=""> Sắp Xếp Theo Phổ Biến</a></option>
-                                                <option @(ViewBag.CurrentSort == ViewBag.DateAscSort ? "selected" : "") value="@ViewBag.DateAscSort">Sắp Xếp Theo Ngày: Cũ - Mới</option>
-                                                <option @(ViewBag.CurrentSort == ViewBag.DateDescSort ? "selected" : "") value="@ViewBag.DateDescSort">Sắp Xếp Theo Ngày: Mới - Cũ</option>
-                                                <option @(ViewBag.CurrentSort == ViewBag.PriceDescSort ? "selected" : "") value="@ViewBag.PriceDescSort">Sắp Xếp Theo Giá: Cao - Thấp</option>
-                                                <option @(ViewBag.CurrentSort == ViewBag.PriceAscSort ? "selected" : "") value="@ViewBag.PriceAscSort">Sắp Xếp Theo Giá: Thấp - Cao</option>
-                                                <option @(ViewBag.CurrentSort == ViewBag.NameAscSort ? "selected" : "") value="@ViewBag.NameAscSort">Sắp Xếp Theo Tên: A - Z</option>
-                                                <option @(ViewBag.CurrentSort == ViewBag.NameDescSort ? "selected" : "") value="@ViewBag.NameDescSort">Sắp Xếp Theo Tên: Z - A</option>
-                                            </select>
-                                        </fieldset>
-                                    </form>
-                                </div> <!-- End Sort Select Option -->
+                                @if (!"Phụ kiện?".Equals(ViewBag.Type))
+                                {
+                                    <div class="sort-select-list d-flex align-items-center">
+                                        <label class="mr-2">Sắp xếp:</label>
+                                        <form action="#">
+                                            <fieldset>
+                                                <div id="sort-for" hidden>@ViewBag.SortBy</div>
+
+                                                <select class="search">
+                                                    <option @(ViewBag.CurrentSort == ViewBag.ResetSort ? "selected" : "")>Mặc định</option>
+                                                    <option @(ViewBag.CurrentSort == ViewBag.PopularSort ? "selected" : "") value="@ViewBag.PopularSort"><a href=""> Sắp Xếp Theo Phổ Biến</a></option>
+                                                    <option @(ViewBag.CurrentSort == ViewBag.DateAscSort ? "selected" : "") value="@ViewBag.DateAscSort">Sắp Xếp Theo Ngày: Cũ - Mới</option>
+                                                    <option @(ViewBag.CurrentSort == ViewBag.DateDescSort ? "selected" : "") value="@ViewBag.DateDescSort">Sắp Xếp Theo Ngày: Mới - Cũ</option>
+                                                    <option @(ViewBag.CurrentSort == ViewBag.PriceDescSort ? "selected" : "") value="@ViewBag.PriceDescSort">Sắp Xếp Theo Giá: Cao - Thấp</option>
+                                                    <option @(ViewBag.CurrentSort == ViewBag.PriceAscSort ? "selected" : "") value="@ViewBag.PriceAscSort">Sắp Xếp Theo Giá: Thấp - Cao</option>
+                                                    <option @(ViewBag.CurrentSort == ViewBag.NameAscSort ? "selected" : "") value="@ViewBag.NameAscSort">Sắp Xếp Theo Tên: A - Z</option>
+                                                    <option @(ViewBag.CurrentSort == ViewBag.NameDescSort ? "selected" : "") value="@ViewBag.NameDescSort">Sắp Xếp Theo Tên: Z - A</option>
+                                                </select>
+                                            </fieldset>
+                                        </form>
+                                    </div> <!-- End Sort Select Option -->
+                                }
                             </div> <!-- Start Sort Wrapper Box -->
                         </div>
                     </div>
@@ -201,10 +205,10 @@
                                                                            data-bs-target="#modalQuickview">
                                                                             <i class="icon-magnifier"></i>
                                                                         </a>
-                                                                        <a >
+                                                                        <a>
                                                                             <i class="icon-heart"></i>
                                                                         </a>
-                                                                        <a >
+                                                                        <a>
                                                                             <i class="icon-shuffle"></i>
                                                                         </a>
                                                                     </div>
@@ -479,11 +483,11 @@
 </div> <!-- ...:::: End Shop Section:::... -->
 @section scripts{
     <script>
-            $("select.search").change(function () {
-                let getSortBy = $('#sort-for').text();
-                const selected = $(this).children("option:selected").val();
-                window.location.href = getSortBy+'sortOrder=' + selected;
-            });
-        </script>
+        $("select.search").change(function () {
+            let getSortBy = $('#sort-for').text();
+            const selected = $(this).children("option:selected").val();
+            window.location.href = getSortBy + 'sortOrder=' + selected;
+        });
+    </script>
     <script src="~/Scripts/UserJS/add-to-cart.js"></script>
 }
